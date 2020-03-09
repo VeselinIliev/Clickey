@@ -81,7 +81,7 @@ public class InventoryTooltip : MonoBehaviour
             EventSystem.current.RaycastAll(cursor, objectsHit);
             foreach (var h in objectsHit)
             {
-                if (string.Equals(h.gameObject.tag, "InventorySlot"))
+                if (h.gameObject.CompareTag("InventorySlot"))
                 {
                     selectedCurrentFrame = true;
                     if(ReferenceEquals(currentSelection, h.gameObject))
@@ -107,4 +107,5 @@ public class InventoryTooltip : MonoBehaviour
         }
 
     }
+
 }
