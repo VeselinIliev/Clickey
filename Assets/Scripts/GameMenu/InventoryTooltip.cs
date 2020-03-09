@@ -10,10 +10,14 @@ public class InventoryTooltip : MonoBehaviour
     TextMeshProUGUI ToolTipText;
     public GameObject currentSelection;
 
+    private bool waitsForClick = false;
+
+
     private void Awake()
     {
         ToolTipText = GameObject.Find("ToolTipText").GetComponent<TextMeshProUGUI>();
     }
+
     private void OnEnable()
     {
         StartCoroutine(CheckCollisions());
@@ -37,23 +41,12 @@ public class InventoryTooltip : MonoBehaviour
 
     private void SetToolTipText()
     {
+        if (currentSelection == null) return;
         string information;
-        try
-        {
-            information = currentSelection.GetComponent<IHaveStats>().GetStats();
-            ToolTipText.SetText(information);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.StackTrace);
-            information = "Empty " + currentSelection.name;
-        }
+        information = currentSelection.GetComponent<IHaveStats>().GetStats();
+        ToolTipText.SetText(information);
 
-    }
 
-    private void SetCurrentSelection(GameObject selected)
-    {
-        currentSelection = selected;
     }
 
     public void HideToolTip()
@@ -62,11 +55,24 @@ public class InventoryTooltip : MonoBehaviour
         ToolTipText.gameObject.SetActive(false);
     }
 
-    
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            waitsForClick = false;
+        }
+        if(Input.touchCount != 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            waitsForClick = false;
+        }
+
+    }
+
     private IEnumerator CheckCollisions()
     {
         while (true)
         {
+            while (waitsForClick) yield return null;
             bool selectedCurrentFrame = false;
 
             PointerEventData cursor = new PointerEventData(EventSystem.current);                            // This section prepares a list for all objects hit with the raycast
@@ -78,6 +84,14 @@ public class InventoryTooltip : MonoBehaviour
                 if (string.Equals(h.gameObject.tag, "InventorySlot"))
                 {
                     selectedCurrentFrame = true;
+                    if(ReferenceEquals(currentSelection, h.gameObject))
+                    {
+                        HideToolTip();
+                        currentSelection = null;
+                        waitsForClick = true;
+                        continue;
+                    }
+
                     currentSelection = h.gameObject;
                     ShowToolTip();
                     continue;
@@ -88,7 +102,7 @@ public class InventoryTooltip : MonoBehaviour
             HideToolTip();
             currentSelection = null;
             }
-
+            waitsForClick = true;
             yield return new WaitForSeconds(.02f);
         }
 
