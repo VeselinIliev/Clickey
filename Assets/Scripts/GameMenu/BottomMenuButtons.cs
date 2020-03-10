@@ -10,10 +10,10 @@ public class BottomMenuButtons : MonoBehaviour
     private Button powers;
     private Button info;
 
-    private GameObject inventoryContainer;
-    private GameObject skillsContainer;
-    private GameObject powersContainer;
-    private GameObject playerInfoContainer;
+    public GameObject inventoryContainer;
+    public GameObject skillsContainer;
+    public GameObject powersContainer;
+    public GameObject playerInfoContainer;
 
 
 
@@ -29,12 +29,7 @@ public class BottomMenuButtons : MonoBehaviour
         powers.onClick.AddListener(() => EnableOnlyOneContainer(powersContainer));
         info.onClick.AddListener(() => EnableOnlyOneContainer(playerInfoContainer));
         
-
-        inventoryContainer = GameObject.Find("InventoryContainer");
-        skillsContainer = GameObject.Find("SkillsContainer");
-        powersContainer = GameObject.Find("PowersContainer");
-        playerInfoContainer = GameObject.Find("PlayerinfoContainer");
-        DisableAllContainers();
+        //DisableAllContainers();
 
     }
 
