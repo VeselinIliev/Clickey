@@ -43,7 +43,7 @@ public class InventoryTooltip : MonoBehaviour
     {
         if (currentSelection == null) return;
         string information;
-        information = currentSelection.GetComponent<IHaveStats>().GetStats();
+        information = currentSelection.GetComponent<IBonusStats>().GetStats();
         ToolTipText.SetText(information);
 
 

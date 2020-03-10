@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public class Item : MonoBehaviour, ICollectable, IHaveStats
+public class Item : MonoBehaviour, ICollectable, IBonusStats
 {
     private int bonusStr;
     private int bonusAgi;

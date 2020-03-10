@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IHaveStats
+public interface IBonusStats
 {
      int BonusStr { get; set; }
      int BonusAgi { get; set; }
