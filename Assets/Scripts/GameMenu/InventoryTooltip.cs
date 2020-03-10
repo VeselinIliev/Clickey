@@ -75,8 +75,10 @@ public class InventoryTooltip : MonoBehaviour
             while (waitsForClick) yield return null;
             bool selectedCurrentFrame = false;
 
-            PointerEventData cursor = new PointerEventData(EventSystem.current);                            // This section prepares a list for all objects hit with the raycast
-            cursor.position = Input.mousePosition;
+            PointerEventData cursor = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };                            // This section prepares a list for all objects hit with the raycast
             List<RaycastResult> objectsHit = new List<RaycastResult>();
             EventSystem.current.RaycastAll(cursor, objectsHit);
             foreach (var h in objectsHit)
