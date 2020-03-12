@@ -7,8 +7,8 @@ public class FrostBall : Spell
     private void Start()
     {
         speed = 4;
-        Damage = 10;
-        particleSystemPrefab = Resources.Load("Spells/ParticleSystems/FrostBall") as GameObject;
+        damage = 10;
+        particleSystemPrefab = Resources.Load("Spells/ParticleSystems/AcidBall") as GameObject;
         base.Start();
 
     }

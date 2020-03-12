@@ -8,7 +8,7 @@ public abstract class Spell : MonoBehaviour, ISpell
     private SpellType spellType;
     public SpellType SpellType { get => spellType; set => spellType = value; }
 
-    public int Damage;
+    public int damage = 1;
 
     public float speed = 1;
 
@@ -28,13 +28,14 @@ public abstract class Spell : MonoBehaviour, ISpell
         spawned = Instantiate(particleSystemPrefab) as GameObject;
         //var main = ps.GetComponent<ParticleSystem>().main;
         spawned.transform.position = player.transform.position;
-        spawned.GetComponent<HuntTarget>().target = GetRandomEnemyPosition();
+        spawned.GetComponent<HuntTarget>().target = GetRandomEnemy();
         spawned.GetComponent<HuntTarget>().speed = speed;
+        spawned.GetComponent<HuntTarget>().damage = damage;
     }
 
-    private Vector3 GetRandomEnemyPosition()
+    private GameObject GetRandomEnemy()
     {
-        return enemies[Random.Range(0, enemies.Count)].transform.position;
+        return enemies[Random.Range(0, enemies.Count)];
     }
 
 

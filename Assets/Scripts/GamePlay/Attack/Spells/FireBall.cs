@@ -6,7 +6,7 @@ public class FireBall : Spell
 {
     private void Start()
     {
-        Damage = 10;
+        damage = 25;
         particleSystemPrefab = Resources.Load("Spells/ParticleSystems/FireBall") as GameObject;
         speed = 2f;
         base.Start();

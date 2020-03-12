@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1327519930985033803}
   - component: {fileID: -8252523703127981569}
   m_Layer: 0
-  m_Name: FrostBall
+  m_Name: AcidBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.94
+      scalar: 0.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
