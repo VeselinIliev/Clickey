@@ -3831,7 +3831,7 @@ ParticleSystem:
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4825,5 +4825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04ab626b8e02654dbdc01932e663ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
   speed: 0
+  damage: 0

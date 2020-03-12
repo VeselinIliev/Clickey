@@ -15,12 +15,10 @@ public abstract class Spell : MonoBehaviour, ISpell
     public GameObject particleSystemPrefab;
     public GameObject player;
     private GameObject spawned;
-    public List<GameObject> enemies;
 
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
     }
 
     public virtual void Cast()
@@ -28,15 +26,8 @@ public abstract class Spell : MonoBehaviour, ISpell
         spawned = Instantiate(particleSystemPrefab) as GameObject;
         //var main = ps.GetComponent<ParticleSystem>().main;
         spawned.transform.position = player.transform.position;
-        spawned.GetComponent<HuntTarget>().target = GetRandomEnemy();
+        spawned.GetComponent<HuntTarget>().target = Enemy.GetRandomEnemy();
         spawned.GetComponent<HuntTarget>().speed = speed;
         spawned.GetComponent<HuntTarget>().damage = damage;
     }
-
-    private GameObject GetRandomEnemy()
-    {
-        return enemies[Random.Range(0, enemies.Count)];
-    }
-
-
 }

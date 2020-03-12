@@ -10,15 +10,25 @@ public class HuntTarget : MonoBehaviour
 
     private void Start()
     {
-        Vector3 endPoint = target.transform.position;
-        transform.position += Vector3.up * .5f;
-        endPoint += Vector3.up * .5f;
-        transform.LookAt(endPoint);
-        SetParticle(endPoint);
-        PlayPS();
+        RepositionParticleSystem();
+        SetEndPoint();
+        PlayParticleSystem();
     }
 
-    void PlayPS()
+    void SetEndPoint()
+    {
+        Vector3 endPoint = target.transform.position;
+        endPoint += Vector3.up * .5f;
+        transform.LookAt(endPoint); 
+        SetParticle(endPoint);
+    }
+
+    void RepositionParticleSystem()
+    {
+        transform.position += Vector3.up * .5f;
+    }
+
+    void PlayParticleSystem()
     {
         GetComponent<ParticleSystem>().Play();
     }
