@@ -6037,7 +6037,7 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - serializedVersion: 2
-      time: 0
+      time: 2
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -9822,7 +9822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441100241}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.69, y: -6.859375, z: 0}
+  m_LocalPosition: {x: -1.69, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1624558805}
@@ -24678,6 +24678,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 741400161200533300, guid: faa8ed11679d49243829d7b0c3ebd338,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 741400161603621720, guid: faa8ed11679d49243829d7b0c3ebd338,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24737,6 +24742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireBuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 741400161603621721, guid: faa8ed11679d49243829d7b0c3ebd338,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa8ed11679d49243829d7b0c3ebd338, type: 3}
